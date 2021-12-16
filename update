@@ -1,0 +1,8 @@
+#!bin/bash
+git pull origin main
+
+sh ./build_up
+# cp ./build/* ./
+sh /usr/local/tomcat/bin/shutdown.sh
+sh /usr/local/tomcat/bin/startup.sh
+
