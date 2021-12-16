@@ -1,0 +1,19 @@
+# !/bin/bash
+comp_dir='WEB-INF/classes'
+comp_dir_lib='WEB-INF'
+compile_dir (){
+  _cur_dir=$1 
+  _getdir="$(ls $_cur_dir)"
+  for f in ${_getdir}; do
+    rdr="$_cur_dir/$f"
+    # echo ${rdr} "is compiled"
+    rm *.class
+    if [ -d "${rdr}" ]; then 
+
+      compile_dir ${rdr} &
+      wait
+    fi
+  done 
+}
+# chown tomcat -R WEB-INF/*
+compile_dir ${comp_dir}
