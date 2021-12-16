@@ -12,15 +12,15 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import org.apache.juli.logging.Log;
-import org.apache.juli.logging.LogFactory;
+// import org.apache.juli.logging.Log;
+// import org.apache.juli.logging.LogFactory;
 
 import util.HTMLFilter;
 
 @ServerEndpoint(value = "/chat")
 public class ChatServer {
 
-    private static final Log log = LogFactory.getLog(ChatServer.class);
+    // private static final Log log = LogFactory.getLog(ChatServer.class);
 
     private static final String GUEST_PREFIX = "user_";
     private static final AtomicInteger connectionIds = new AtomicInteger(0);
@@ -66,7 +66,7 @@ public class ChatServer {
 
     @OnError
     public void onError(Throwable t) throws Throwable {
-        log.error("Chat Error: " + t.toString(), t);
+        // log.error("Chat Error: " + t.toString(), t);
     }
 
 
@@ -77,7 +77,7 @@ public class ChatServer {
                     client.session.getBasicRemote().sendText(msg);
                 }
             } catch (IOException e) {
-                log.debug("Chat Error: Failed to send message to client", e);
+                // log.debug("Chat Error: Failed to send message to client", e);
                 connections.remove(client);
                 try {
                     client.session.close();
