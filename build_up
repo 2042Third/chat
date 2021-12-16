@@ -4,18 +4,18 @@ compile_dir (){
   _cur_dir=$1 
   _getdir="$(ls $_cur_dir)"
   for f in ${_getdir}; do
-    rdr="$comp_dir/$f"
+    rdr="$_cur_dir/$f"
     # echo ${rdr} "is compiled"
     
     if [ -d "${rdr}" ]; then 
-      echo "dir: ${rdr}"
+      # echo "dir: ${rdr}"
       # echo ${PWD}
       compile_dir ${rdr} &
       wait
     else
       case ${rdr} in
         *.java )
-          echo "    file: ${rdr}"
+          # echo "    file: ${rdr}"
           javac -cp /usr/local/tomcat/lib/*:../lib/*:./* ${rdr}
           ;;
       esac
