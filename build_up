@@ -1,6 +1,28 @@
-#!bin/bash
-cd WEB-INF/classes
-javac -cp /usr/local/tomcat/lib/*:./* *.java
-sudo rm chat/*
-sudo mv -f *.class chat/
-cd ../
+# !/bin/bash
+comp_dir='WEB-INF/classes'
+compile_dir (){
+  _cur_dir=$1 
+  _getdir="$(ls $_cur_dir)"
+  for f in ${_getdir}; do
+    rdr="$comp_dir/$f"
+    # echo ${rdr} "is compiled"
+    
+    if [ -d "${rdr}" ]; then 
+      echo "dir: ${rdr}"
+      # echo ${PWD}
+      compile_dir ${rdr} &
+      wait
+    else
+      case ${rdr} in
+        *.java )
+          echo "    file: ${rdr}"
+          javac -cp /usr/local/tomcat/lib/*:../lib/*:./* ${rdr}
+          ;;
+      esac
+      # touch "compiled"
+      # echo ${rdr} "is compiled"
+    fi
+  done 
+}
+# chown tomcat -R WEB-INF/*
+compile_dir ${comp_dir}
