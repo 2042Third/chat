@@ -24,6 +24,7 @@ public class JSONParse {
     }
     catch (ParseException e){
       System.out.println("Jason Parse failure!");
+      System.out.println(a);
     }
     return (Map<String,Object>)obj;
   }
