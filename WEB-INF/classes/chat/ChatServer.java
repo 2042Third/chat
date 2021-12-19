@@ -53,7 +53,7 @@ public class ChatServer {
         switch((String) msg.get("type")){
             case "register":
                 System.out.println("[chat server] registration for "+msg.get("sender")+".");
-                this.nickname = (String)msg.get(sender);
+                this.nickname = (String)msg.get("sender");
                 this.nickID = this.nickname+this.connectionIds.get();
                 String regi_ack = a_parse.json_request("regi_ack","serv", this.nickname, this.nickID,"","");
                 this.send_to(this.nickID,regi_ack );
