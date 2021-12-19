@@ -74,7 +74,8 @@ public class ChatServer {
     public void start(Session session) {
         this.session = session;
         connections.add(this);
-        // String message = String.format("* %s %s", nickname, "has joined.");
+
+        // String message = String.format("%s", nickname, "has joined.");
         // broadcast(message);
     }
 
@@ -91,9 +92,9 @@ public class ChatServer {
     @OnMessage
     public void incoming(String message) {
         // Never trust the client
-        String filteredMessage = String.format("%s: %s",
+        String filteredMessage = String.format("%s",
                 nickname, HTMLFilter.filter(message.toString()));
-        
+        read_incoming(filteredMessage);
         // broadcast(filteredMessage);
     }
 
