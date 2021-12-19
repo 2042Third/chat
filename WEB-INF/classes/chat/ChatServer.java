@@ -14,7 +14,8 @@ import javax.websocket.server.ServerEndpoint;
 
 // import org.apache.juli.logging.Log;
 // import org.apache.juli.logging.LogFactory;
-
+import java.util.*;
+import util.JSONParse;
 import util.HTMLFilter;
 
 @ServerEndpoint(value = "/chat")
@@ -56,8 +57,11 @@ public class ChatServer {
     @OnMessage
     public void incoming(String message) {
         // Never trust the client
+        JSONParse a = new JSONParse();
         String filteredMessage = String.format("%s: %s",
                 nickname, HTMLFilter.filter(message.toString()));
+        Map<String, Object> new_msg = a.parse(HTMLFilter.filter(message.toString()));
+        System.out.println("[chat server] new object from msg : "+ new_msg);
         broadcast(filteredMessage);
     }
 
