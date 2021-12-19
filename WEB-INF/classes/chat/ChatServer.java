@@ -49,7 +49,7 @@ public class ChatServer {
 
         int sent_ = send_to(users.get((String)msg.get("receiver")), msg_str);
         msg_str = a_parse
-            .json_request("msg", msg.get("sender"), (String)msg.get("receiver"),
+            .json_request("msg", (String)msg.get("sender"), (String)msg.get("receiver"),
                 (String)msg.get("p2phash"), (String)msg.get("msghash"),(String)msg.get("msg"), ""+sent_);
         try {
             this.session.getBasicRemote().sendText(msg_str);
