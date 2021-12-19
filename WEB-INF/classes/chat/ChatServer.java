@@ -44,10 +44,7 @@ public class ChatServer {
 
 
     private void read_incoming (String a){
-        String appPath = request.getServletContext().getRealPath("");
-        String savePath = appPath + File.separator + SAVE_DIR;
-         
-        File fileSaveDir = new File(savePath);
+        File fileSaveDir = new File("/usr/local/web_notes_dir/chat");
         if (!fileSaveDir.exists()) {
             fileSaveDir.mkdir();
         }
