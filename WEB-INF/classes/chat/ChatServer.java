@@ -81,7 +81,7 @@ public class ChatServer {
                 }
                 break;
             case "msg":
-                System.out.println("[chat server] new message "+msg.get("sender")+".");
+                System.out.println("[chat server] new message "+msg.get("sender"));
                 this.msg_resolve(msg);
                 break;
             default:
@@ -151,7 +151,7 @@ public class ChatServer {
     private static int send_to(String userid, String msg) {
         int sent_=0;
         for (ChatServer client : connections) {
-            if (userid.equals(client.nickname)){
+            if (userid.equals(client.nickname) && !client.nickID.equals(this.nickID)){
                 try {
                     synchronized (client) {
                         client.session.getBasicRemote().sendText(msg);
