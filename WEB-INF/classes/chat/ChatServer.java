@@ -37,7 +37,7 @@ public class ChatServer {
 
 
     public ChatServer() {
-        connectionIds.getAndIncreament();
+        Integer i = connectionIds.getAndIncrement();
         nickname = "";
 
     }
