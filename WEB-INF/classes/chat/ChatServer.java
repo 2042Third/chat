@@ -65,8 +65,8 @@ public class ChatServer {
         }
 
         Map<String, Object> msg = a_parse.parse(HTMLFilter.filter(a));
-        System.out.println("[chat server] new object from msg : "+ msg);
-        System.out.println("[chat server] new string from msg : "+ a);
+        // System.out.println("[chat server] new object from msg : "+ msg);
+        // System.out.println("[chat server] new string from msg : "+ a);
         switch((String) msg.get("type")){
             case "register":
                 System.out.println("[chat server] registration for "+msg.get("sender")+".");
@@ -151,6 +151,7 @@ public class ChatServer {
     private static int send_to(String userid, String msg) {
         int sent_=0;
         for (ChatServer client : connections) {
+            System.out.println("\t[chat server] compare:\n\t"+userid+"\n\t"+client.nickname+"\n");
             if (userid.equals(client.nickname) && !client.nickID.equals(nickID)){
                 try {
                     synchronized (client) {
