@@ -30,7 +30,7 @@ public class ChatServer {
     private static final Set<ChatServer> connections =
             new CopyOnWriteArraySet<>();
 
-    private final String nickname;
+    private  String nickname;
     public final String nickID;
     private Session session;
     private JSONParse a_parse = new JSONParse();
