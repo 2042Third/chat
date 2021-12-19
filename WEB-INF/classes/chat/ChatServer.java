@@ -152,11 +152,14 @@ public class ChatServer {
         int sent_=0;
         for (ChatServer client : connections) {
             System.out.println("\t[chat server] compare:\n\t"+userid+"\n\t"+client.nickname+"\n");
-            if (userid.equals(client.nickname) && !client.nickID.equals(nickID)){
+            if (true){
                 try {
                     synchronized (client) {
-                        client.session.getBasicRemote().sendText(msg);
-                        sent_++;
+                        if (userid.equals(client.nickname) && !client.nickID.equals(nickID)){
+                            client.session.getBasicRemote().sendText(msg);
+                            sent_++;
+                            return sent_;
+                        }
                     }
                 } catch (IOException e) {
                     // log.debug("Chat Error: Failed to send message to client", e);
@@ -170,7 +173,7 @@ public class ChatServer {
                             client.nickname, "has been disconnected.");
                     broadcast(message);
                 }
-                return sent_;
+                // return sent_;
             }
 
         }
