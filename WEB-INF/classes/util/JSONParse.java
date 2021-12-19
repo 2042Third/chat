@@ -105,5 +105,25 @@ public class JSONParse {
     jobj.put("v3", v3);
     return jsts(jobj);
   }
+  /**
+   * Returns a json string from the given input. 
+   * @param pph     p2p hash
+   * @param sender  sender
+   * @param recv    receiver
+   * @param v1      data 
+   * @param v2      data 
+   * @param v3      data 
+   * */
+  public String json_request (String type, String sender, String recv, String v1, String v2, String v3, String v4){
+    create_obj();
+    jobj.put("type", type);
+    jobj.put("sender", sender);
+    jobj.put("receiver", recv);
+    jobj.put("v1", v1);
+    jobj.put("v2", v2);
+    jobj.put("v3", v3);
+    jobj.put("v4", v4);
+    return jsts(jobj);
+  }
 
 }
