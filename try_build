@@ -3,3 +3,5 @@ git pull origin main
 
 sh ./perge
 sh ./build_up
+
+sudo chown tomcat -R *

@@ -7,3 +7,5 @@ sh ./build_up
 sh /usr/local/tomcat/bin/shutdown.sh
 sh /usr/local/tomcat/bin/startup.sh
 
+
+sudo chown tomcat -R *
