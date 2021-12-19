@@ -46,9 +46,9 @@ public class ChatServer {
             .json_request("msg", this.nickname, (String)msg.get("receiver"),
                 (String)msg.get("p2phash"), (String)msg.get("msghash"),(String)msg.get("msg"), "");
 
-        int sent_ = send_to(msg.get("receiver"), msg_str);
+        int sent_ = send_to((String)msg.get("receiver"), msg_str);
         msg_str = a_parse
-            .json_request("msg", this.nickname, msg.get("receiver"),
+            .json_request("msg", this.nickname, (String)msg.get("receiver"),
                 (String)msg.get("p2phash"), (String)msg.get("msghash"),(String)msg.get("msg"), ""+sent_);
         try {
             this.session.getBasicRemote().sendText(msg_str);
