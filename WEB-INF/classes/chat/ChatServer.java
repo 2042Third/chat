@@ -1,6 +1,7 @@
 package chat;
 
 import java.io.IOException;
+import java.io.File;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -51,7 +52,7 @@ public class ChatServer {
 
         Map<String, Object> msg = a_parse.parse(HTMLFilter.filter(a));
         System.out.println("[chat server] new object from msg : "+ msg);
-        switch(msg.get("type")){
+        switch((String) msg.get("type")){
             case "register":
                 System.out.println("[chat server] registration for "+msg.get("sender")+".");
                 this.nickname = msg.get(sender);
