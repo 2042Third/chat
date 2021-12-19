@@ -93,9 +93,9 @@ public class ChatServer {
     @OnMessage
     public void incoming(String message) {
         // Never trust the client
-        String filteredMessage = String.format("%s",
-                nickname, HTMLFilter.filter(message.toString()));
-        read_incoming(filteredMessage);
+        // String filteredMessage = String.format("%s",
+        //         nickname, HTMLFilter.filter(message.toString()));
+        read_incoming(message.toString());
         // broadcast(filteredMessage);
     }
 
