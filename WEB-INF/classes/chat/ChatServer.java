@@ -30,6 +30,7 @@ public class ChatServer {
     private static final Set<ChatServer> connections =
             new CopyOnWriteArraySet<>();
 
+    private static HashMap<String, String> users = new HashMap<>();
     public static String nickname;
     public static String nickID;
     private Session session;
@@ -46,9 +47,9 @@ public class ChatServer {
             .json_request("msg", this.nickname, (String)msg.get("receiver"),
                 (String)msg.get("p2phash"), (String)msg.get("msghash"),(String)msg.get("msg"), "");
 
-        int sent_ = send_to((String)msg.get("receiver"), msg_str);
+        int sent_ = send_to(users.get((String)msg.get("receiver")), msg_str);
         msg_str = a_parse
-            .json_request("msg", this.nickname, (String)msg.get("receiver"),
+            .json_request("msg", msg.get("sender"), (String)msg.get("receiver"),
                 (String)msg.get("p2phash"), (String)msg.get("msghash"),(String)msg.get("msg"), ""+sent_);
         try {
             this.session.getBasicRemote().sendText(msg_str);
@@ -70,7 +71,8 @@ public class ChatServer {
         switch((String) msg.get("type")){
             case "register":
                 System.out.println("[chat server] registration for "+msg.get("sender")+".");
-                this.nickname = (String)msg.get("sender");
+                nickname = (String)msg.get("sender");
+                users.put(nickname,session.getId() );
                 this.nickID = this.nickname+this.connectionIds.get();
                 String regi_ack = a_parse.json_request("regi_ack","serv", this.nickname, this.nickID,"","");
                 try {
@@ -151,11 +153,11 @@ public class ChatServer {
     private static int send_to(String userid, String msg) {
         int sent_=0;
         for (ChatServer client : connections) {
-            System.out.println("\t[chat server] compare:\n\t"+userid+"\n\t"+client.nickname+"\n");
+            System.out.println("\t[chat server] compare:\n\t"+userid+"\n\t"+client.session.getId()+"\n");
             if (true){
                 try {
                     synchronized (client) {
-                        if (userid.equals(client.nickname) && !client.nickID.equals(nickID)){
+                        if (userid.equals(client.session.getId()) ){
                             client.session.getBasicRemote().sendText(msg);
                             sent_++;
                             return sent_;
