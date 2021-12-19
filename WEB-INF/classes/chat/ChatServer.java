@@ -41,6 +41,22 @@ public class ChatServer {
         Integer i = connectionIds.getAndIncrement();
     }
 
+    private void msg_resolve (Map<String, Object> msg){
+        String msg_str = a_parse
+            .json_request("msg", this.nickname, msg.get("receiver"),msg.get("p2phash"),
+            msg.get("msghash"),msg.get("msg"), "");
+
+        int sent_ = send_to(msg.get("receiver"), msg_str);
+        msg_str = a_parse
+            .json_request("msg", this.nickname, msg.get("receiver"),msg.get("p2phash"),
+            msg.get("msghash"),msg.get("msg"), sent_);
+        try {
+            this.session.getBasicRemote().sendText(msg_str);
+        }
+        catch (IOException e){
+            System.out.println("[chat server] registration send-back failure");
+        }
+    }
 
     private void read_incoming (String a){
         File fileSaveDir = new File("/usr/local/web_notes_dir/chat");
@@ -64,7 +80,10 @@ public class ChatServer {
                     System.out.println("[chat server] registration send-back failure");
                 }
                 break;
-            
+            case "msg":
+                System.out.println("[chat server] new message "+msg.get("sender")+".");
+                this.msg_resolve(msg);
+                break;
             default:
                 System.out.println("[chat server] Unkown type: "+msg.get("type"));
         }
@@ -129,12 +148,14 @@ public class ChatServer {
             }
         }
     }
-    private static void send_to(String userid, String msg) {
+    private static int send_to(String userid, String msg) {
+        int sent_=0;
         for (ChatServer client : connections) {
-            if (userid.equals(client.nickID)){
+            if (userid.equals(client.nickname)){
                 try {
                     synchronized (client) {
                         client.session.getBasicRemote().sendText(msg);
+                        sent_++;
                     }
                 } catch (IOException e) {
                     // log.debug("Chat Error: Failed to send message to client", e);
@@ -148,7 +169,7 @@ public class ChatServer {
                             client.nickname, "has been disconnected.");
                     broadcast(message);
                 }
-                return ;
+                return sent_;
             }
 
         }
