@@ -56,7 +56,7 @@ public class ChatServer {
                 this.nickname = (String)msg.get("sender");
                 this.nickID = this.nickname+this.connectionIds.get();
                 String regi_ack = a_parse.json_request("regi_ack","serv", this.nickname, this.nickID,"","");
-                this.send_to(this.nickID,regi_ack );
+                this.session.getBasicRemote().sendText(regi_ack);
                 break;
             
             default:
