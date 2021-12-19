@@ -43,11 +43,13 @@ public class ChatServer {
 
     private void msg_resolve (Map<String, Object> msg){
         String msg_str = a_parse
-            .json_request("msg", this.nickname, msg.get("receiver"),msg.get("p2phash"), msg.get("msghash"),msg.get("msg"), "");
+            .json_request("msg", this.nickname, (String)msg.get("receiver"),
+                (String)msg.get("p2phash"), (String)msg.get("msghash"),(String)msg.get("msg"), "");
 
         int sent_ = send_to(msg.get("receiver"), msg_str);
         msg_str = a_parse
-            .json_request("msg", this.nickname, msg.get("receiver"),msg.get("p2phash"), msg.get("msghash"),msg.get("msg"), sent_);
+            .json_request("msg", this.nickname, msg.get("receiver"),
+                (String)msg.get("p2phash"), (String)msg.get("msghash"),(String)msg.get("msg"), ""+sent_);
         try {
             this.session.getBasicRemote().sendText(msg_str);
         }
