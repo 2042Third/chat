@@ -61,7 +61,7 @@ public class ChatServer {
         String filteredMessage = String.format("%s: %s",
                 nickname, HTMLFilter.filter(message.toString()));
         Map<String, Object> new_msg = a.parse(HTMLFilter.filter(message.toString()));
-        System.out.println("[chat server] new object from msg : "+ new_msg);
+        System.out.println("[chat server] new object from msg : "+ message.toString());
         broadcast(filteredMessage);
     }
 
