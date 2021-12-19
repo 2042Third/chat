@@ -151,7 +151,7 @@ public class ChatServer {
     private static int send_to(String userid, String msg) {
         int sent_=0;
         for (ChatServer client : connections) {
-            if (userid.equals(client.nickname) && !client.nickID.equals(this.nickID)){
+            if (userid.equals(client.nickname) && !client.nickID.equals(nickID)){
                 try {
                     synchronized (client) {
                         client.session.getBasicRemote().sendText(msg);
