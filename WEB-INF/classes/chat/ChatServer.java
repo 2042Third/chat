@@ -60,7 +60,7 @@ public class ChatServer {
         JSONParse a = new JSONParse();
         String filteredMessage = String.format("%s: %s",
                 nickname, HTMLFilter.filter(message.toString()));
-        Map<String, Object> new_msg = a.parse(HTMLFilter.filter(message.toString().replaceAll( "%quot" , "\"" )));
+        Map<String, Object> new_msg = a.parse(HTMLFilter.filter(message.toString()));
         System.out.println("[chat server] new object from msg : "+ message.toString());
         broadcast(filteredMessage);
     }

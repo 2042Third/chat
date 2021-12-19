@@ -51,12 +51,12 @@ public final class HTMLFilter {
                 case '>':
                     result.append("&gt;");
                     break;
-                case '&':
-                    result.append("&amp;");
-                    break;
-                case '"':
-                    result.append("&quot;");
-                    break;
+                // case '&':
+                //     result.append("&amp;");
+                //     break;
+                // case '"':
+                //     result.append("&quot;");
+                //     break;
                 default:
                     result.append(c);
             }
