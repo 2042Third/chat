@@ -25,7 +25,21 @@ public class SHA3 {
     byte[] result = md.digest(a.getBytes(UTF_8));
     return bytesToHex(result);
   }
-  
+
+  /**
+   * Takes a string return a sha3-256 hash string.
+   * */
+  public static String get_sha3A(String a) throws Exception {
+    MessageDigest md;
+    try {
+        md = MessageDigest.getInstance("SHA3-512");
+    } catch (NoSuchAlgorithmException e) {
+        throw new IllegalArgumentException(e);
+    }
+    byte[] result = md.digest(a.getBytes(UTF_8));
+    return bytesToHex(result);
+  }
+
   public static String bytesToHex(byte[] bytes) {
     StringBuilder sb = new StringBuilder();
     for (byte b : bytes) {
