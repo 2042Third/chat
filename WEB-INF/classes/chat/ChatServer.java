@@ -90,13 +90,14 @@ public class ChatServer {
                 System.out.println("[chat server] Unkown type: "+msg.get("type"));
         }
 
-    }
+    } 
 
     @OnOpen
     public void start(Session session) {
+        System.out.println("[chat server] new client trying to connect..");
         this.session = session;
         connections.add(this);
-
+        session.getBasicRemote().sendText("Hello this is server.");
         // String message = String.format("%s", nickname, "has joined.");
         // broadcast(message);
     }
@@ -104,6 +105,7 @@ public class ChatServer {
 
     @OnClose
     public void end() {
+        System.out.println("[chat server] client ends");
         connections.remove(this);
         // String message = String.format("* %s %s",
         //         nickname, "has disconnected.");
@@ -116,6 +118,7 @@ public class ChatServer {
         // Never trust the client
         // String filteredMessage = String.format("%s",
         //         nickname, HTMLFilter.filter(message.toString()));
+        System.out.println("[chat server] incoming");
         read_incoming(message.toString());
         // broadcast(filteredMessage);
     }
