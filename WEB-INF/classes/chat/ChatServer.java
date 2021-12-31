@@ -97,7 +97,13 @@ public class ChatServer {
         System.out.println("[chat server] new client trying to connect..");
         this.session = session;
         connections.add(this);
-        session.getBasicRemote().sendText("Hello this is server.");
+        try{
+            session.getBasicRemote().sendText("Hello this is server.");
+        }
+        catch(Exception e){
+            System.out.println("[chat server] ERROR: IOException");
+
+        }
         // String message = String.format("%s", nickname, "has joined.");
         // broadcast(message);
     }
