@@ -13,7 +13,7 @@
     </servlet>
     <servlet-mapping>
       <servlet-name>ChatServer</servlet-name>
-      <url-pattern></url-pattern>
+      <url-pattern>/chat</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

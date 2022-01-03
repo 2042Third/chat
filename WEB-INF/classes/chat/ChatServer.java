@@ -98,7 +98,7 @@ public class ChatServer {
         this.session = session;
         connections.add(this);
         try{
-            session.getBasicRemote().sendText("Hello this is server.");
+            session.getBasicRemote().sendText("{type:\"hello\", msg:\"Hello this is server.\"}");
         }
         catch(Exception e){
             System.out.println("[chat server] ERROR: IOException");
