@@ -125,7 +125,9 @@ public class ChatServer {
         // String filteredMessage = String.format("%s",
         //         nickname, HTMLFilter.filter(message.toString()));
         System.out.println("[chat server] incoming");
-        read_incoming(message.toString());
+        // read_incoming(message.toString());
+
+        
         // broadcast(filteredMessage);
     }
 
