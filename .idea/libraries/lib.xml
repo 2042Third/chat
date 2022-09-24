@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/WEB-INF/lib/jakarta.activation-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WEB-INF/lib/jakarta.xml.bind-api-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WEB-INF/lib/chat-0.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WEB-INF/lib/mariadb-java-client-2.7.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WEB-INF/lib/jaxb-impl-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WEB-INF/lib/jaxb-core-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WEB-INF/lib/json-simple-1.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
