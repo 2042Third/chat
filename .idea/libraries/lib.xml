@@ -8,6 +8,34 @@
       <root url="jar://$PROJECT_DIR$/WEB-INF/lib/jaxb-impl-3.0.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/WEB-INF/lib/jaxb-core-3.0.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/WEB-INF/lib/json-simple-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WEB-INF/lib/jakarta.mail-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WEB-INF/lib/jakarta.mail-api-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WEB-INF/lib/postgresql-42.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/WEB-INF/lib/smtp-1.6.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/annotations-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/catalina-ant.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/catalina-ha.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/catalina-ssi.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/catalina-storeconfig.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/catalina-tribes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/catalina.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/ecj-4.20.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/el-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/jakartaee-migration-1.0.0-shaded.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/jasper-el.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/jasper.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/jaspic-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/jsp-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/servlet-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/tomcat-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/tomcat-coyote.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/tomcat-dbcp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/tomcat-jdbc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/tomcat-jni.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/tomcat-util-scan.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/tomcat-util.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/tomcat-websocket.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../lib/websocket-api.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
